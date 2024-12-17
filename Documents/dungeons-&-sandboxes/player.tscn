@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://rl2d0yaxets5"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_y260j"]
+[ext_resource type="Texture2D" uid="uid://g4o3bickrl2y" path="res://idleimage.png" id="2_gnsge"]
+[ext_resource type="Texture2D" uid="uid://byrcp7yd0kgyc" path="res://HealthIcon.png" id="3_34unc"]
+[ext_resource type="FontFile" uid="uid://dy2o5y5hmnntx" path="res://AndyBold.OTF" id="4_khj56"]
+[ext_resource type="Script" path="res://rich_text_label.gd" id="4_ubskg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5fai"]
+size = Vector2(16, 16)
+
+[sub_resource type="Theme" id="Theme_ogrjk"]
+default_font = ExtResource("4_khj56")
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_y260j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x5fai")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_gnsge")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Healthicon" type="TextureRect" parent="Camera2D"]
+texture_filter = 1
+offset_left = -571.0
+offset_top = -317.0
+offset_right = -531.0
+offset_bottom = -277.0
+texture = ExtResource("3_34unc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
+offset_left = -528.0
+offset_top = -305.0
+offset_right = -421.0
+offset_bottom = -265.0
+theme = SubResource("Theme_ogrjk")
+text = "textes"
+script = ExtResource("4_ubskg")
